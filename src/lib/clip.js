@@ -1,18 +1,21 @@
 
+
 export const createTest = async () => create(true);
 export const create = async (testing=false) => {
     console.log("starting clipper...")
     let title = document.title.replace(/\//g, '')
     let url = window.location.href
-    let defaultNoteFormat = `> {clip}
+    let domain = window.location.hostname
+    let defaultNoteFormat = `- [ ] [{domain}]({url}): {title}: "{clip}"
+`
+    /*let defaultNoteFormat = `## {date}) [{title}]({url})
 
-// Clipped from [{title}]({url}) at {date}.`
-
+> {clip}`//*/
     let defaultClippingOptions = {
-        obsidianVaultName: 'Obsidian',
+        obsidianVaultName: '_map',
         selectAsMarkdown: false,
         obsidianNoteFormat: defaultNoteFormat,
-        obsidianNoteName: "Chrome Clippings",
+        obsidianNoteName: "_do/Clips",
         clipAsNewNote: true,
         dateFormat: "YYYY-MM-DD",
         datetimeFormat: "YYYY-MM-DD HH:mm:ss",
@@ -25,7 +28,7 @@ export const create = async (testing=false) => {
         })
     }
 
-    let clippingOptions = await getFromStorage(defaultClippingOptions)
+    let clippingOptions = defaultClippingOptions // await getFromStorage(defaultClippingOptions)
 
     let note = clippingOptions.obsidianNoteFormat
     
@@ -84,6 +87,7 @@ export const create = async (testing=false) => {
     note = note.replace(/{url}/g, url)
     note = note.replace(/{title}/g, title)
     note = note.replace(/{zettel}/g, zettel)
+    note = note.replace(/{domain}/g, domain)
 
     // Clip the og:image if it exists
     if (document.querySelector('meta[property="og:image"]')) {
