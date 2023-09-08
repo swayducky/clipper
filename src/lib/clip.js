@@ -6,8 +6,11 @@ export const create = async (testing=false) => {
     let title = document.title.replace(/\//g, '')
     let url = window.location.href
     let domain = window.location.hostname
-    let defaultNoteFormat = `- [ ] [{domain}]({url}): {title}: "{clip}"
-`
+    if (domain.startsWith('www.')) {
+        domain = domain.slice(4)
+    }
+    let defaultNoteFormat = `
+- [ ] [{domain}]({url}): {title}: =={clip}`
     /*let defaultNoteFormat = `## {date}) [{title}]({url})
 
 > {clip}`//*/
