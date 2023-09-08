@@ -10,7 +10,7 @@ export const create = async (testing=false) => {
         domain = domain.slice(4)
     }
     let defaultNoteFormat = `
-- [ ] [{domain}]({url}): {title}: =={clip}`
+- [ ] [{domain}]({url}) {title}. =={clip}`
     /*let defaultNoteFormat = `## {date}) [{title}]({url})
 
 > {clip}`//*/
