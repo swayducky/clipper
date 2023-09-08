@@ -78,6 +78,10 @@ export const create = async (testing=false) => {
     } else {
         selection = window.getSelection()
     }
+    if (selection) {
+        // remove linebreaks and format nicely, removing any leading spaces in front of lines, for example
+        selection = selection.toString().replace(/\n/g, ' ').replace(/\s\s+/g, ' ').trim()
+    }
 
     // Replace the placeholders: (with regex so multiples are replaced as well..)
     note = note.replace(/{clip}/g, selection)
