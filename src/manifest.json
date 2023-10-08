@@ -1,9 +1,9 @@
 {
-    "name": "Obsidian Clipper",
-    "version": "0.5.0",
     "manifest_version": 3,
+    "name": "Sway Clipper",
+    "version": "0.1",
     "description": "A small chrome plugin that let's you easily clip things to Obsidian",
-    "homepage_url": "https://github.com/jplattel/obsidian-clipper",
+    "homepage_url": "https://github.com/swayducky/clipper",
     "background": {
         "service_worker": "background.js",
         "type": "module"
@@ -13,7 +13,7 @@
         "open_in_tab": true
     },
     "action": {
-        "default_title": "Clip selection to Obsidian"
+        "default_popup": "popup.html"
     },
     "permissions": [
         "activeTab",
