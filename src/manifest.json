@@ -5,7 +5,7 @@
     "description": "A small chrome plugin that let's you easily clip things to Obsidian",
     "homepage_url": "https://github.com/swayducky/clipper",
     "background": {
-        "service_worker": "background.js",
+        "service_worker": "core/background.js",
         "type": "module"
     },
     "options_ui": {
