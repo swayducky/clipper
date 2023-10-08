@@ -18,8 +18,6 @@ chrome.action.onClicked.addListener(async function (tab) {
 });
 
 chrome.runtime.onMessage.addListener(async function listener(result) {
-    console.log("[Clipper.onMessage]", result)
-    alert("Clipper.onMessage" + JSON.stringify(result))
 });
 
 // On install, open the options page
